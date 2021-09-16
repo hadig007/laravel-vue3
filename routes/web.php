@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\TestController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{path}', function () {
     return view('app');
-})->where('path', '.*');
+})
+// ->where('path', '.*')
+;
+
+// Route::post('/app/create_tag', [TestController::class,'createTag']);
+Route::post('/app/create_tag', [AdminController::class,'addTag']);
+Route::get('/app/get_tags', [AdminController::class,'getTag']);
